@@ -1,0 +1,73 @@
+[System]
+Name='FISkualitas1'
+Type='mamdani'
+Version=2.0
+NumInputs=3
+NumOutputs=1
+NumRules=27
+AndMethod='min'
+OrMethod='max'
+ImpMethod='min'
+AggMethod='max'
+DefuzzMethod='centroid'
+
+[Input1]
+Name='Size'
+Range=[0 12]
+NumMFs=3
+MF1='kecil':'gaussmf',[2.124 -9.992e-17]
+MF2='sedang':'gaussmf',[2.124 6]
+MF3='besar':'gaussmf',[2.125 12]
+
+[Input2]
+Name='Kesegaran'
+Range=[0 80]
+NumMFs=3
+MF1='tidaksegar':'trimf',[0 0 30]
+MF2='kurangsegar':'trimf',[10 40 70]
+MF3='segar':'trimf',[50 80 80]
+
+[Input3]
+Name='Kerusakan'
+Range=[0 10]
+NumMFs=3
+MF1='sedikit':'trimf',[0 0 4]
+MF2='sedang':'trimf',[1 5 9]
+MF3='banyak':'trimf',[6 10 14.2]
+
+[Output1]
+Name='Kualitas'
+Range=[0 30]
+NumMFs=3
+MF1='kurangbagus':'trimf',[0 5 10]
+MF2='bagus':'trimf',[10 15 20]
+MF3='super':'trimf',[20 25 30]
+
+[Rules]
+1 1 3, 1 (1) : 1
+1 1 2, 1 (1) : 1
+1 1 1, 1 (1) : 1
+1 2 3, 1 (1) : 1
+1 2 2, 1 (1) : 1
+1 2 1, 2 (1) : 1
+1 3 3, 2 (1) : 1
+1 3 2, 2 (1) : 1
+1 3 1, 3 (1) : 1
+2 1 3, 1 (1) : 1
+2 1 2, 1 (1) : 1
+2 1 1, 1 (1) : 1
+2 2 3, 1 (1) : 1
+2 2 2, 2 (1) : 1
+2 2 1, 2 (1) : 1
+2 3 3, 2 (1) : 1
+2 3 2, 2 (1) : 1
+2 3 1, 3 (1) : 1
+3 1 3, 1 (1) : 1
+3 1 2, 1 (1) : 1
+3 1 1, 1 (1) : 1
+3 2 3, 1 (1) : 1
+3 2 2, 2 (1) : 1
+3 2 1, 2 (1) : 1
+3 3 3, 2 (1) : 1
+3 3 2, 3 (1) : 1
+3 3 1, 3 (1) : 1
